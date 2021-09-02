@@ -20,10 +20,6 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 import { DatePipe } from '@angular/common';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { MenujuegosComponent } from './pages/menujuegos/menujuegos.component';
-import { PptComponent } from './pages/ppt/ppt.component';
-import { TatetiComponent } from './pages/tateti/tateti.component';
-import { MemotestComponent } from './pages/memotest/memotest.component';
-import { CaraosecaComponent } from './pages/caraoseca/caraoseca.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -37,11 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormUserComponent,
     AlertComponent,
     QuienSoyComponent,
-    MenujuegosComponent,
-    PptComponent,
-    TatetiComponent,
-    MemotestComponent,
-    CaraosecaComponent
+    MenujuegosComponent
   ],
   imports: [
     BrowserModule,

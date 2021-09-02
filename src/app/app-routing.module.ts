@@ -31,22 +31,6 @@ const routes: Routes = [
     path: `menujuegos`, loadChildren: () =>
       import('./pages/menujuegos/menujuegos.module').then(m => m.MenujuegosModule)
   },
-  {
-    path: `ppt`, loadChildren: () =>
-      import('./pages/ppt/ppt.module').then(m => m.PptModule)
-  },
-  {
-    path: `tateti`, loadChildren: () =>
-      import('./pages/tateti/tateti.module').then(m => m.TatetiModule)
-  },
-  {
-    path: `caraoseca`, loadChildren: () =>
-      import('./pages/caraoseca/caraoseca.module').then(m => m.CaraosecaModule)
-  },
-  {
-    path: `memotest`, loadChildren: () =>
-      import('./pages/memotest/memotest.module').then(m => m.MemotestModule)
-  },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
 
