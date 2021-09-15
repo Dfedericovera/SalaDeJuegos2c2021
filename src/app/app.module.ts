@@ -21,6 +21,7 @@ import { DatePipe } from '@angular/common';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { MenujuegosComponent } from './pages/menujuegos/menujuegos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SalaDeChatComponent } from './pages/sala-de-chat/sala-de-chat.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormUserComponent,
     AlertComponent,
     QuienSoyComponent,
-    MenujuegosComponent
+    MenujuegosComponent,
+    SalaDeChatComponent
   ],
   imports: [
     BrowserModule,
