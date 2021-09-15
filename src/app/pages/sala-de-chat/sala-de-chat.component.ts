@@ -26,7 +26,7 @@ export class SalaDeChatComponent implements OnInit
     this.chatService.getPosts().subscribe(value =>
     {
       this.posts = value;
-      console.log("POSTS", this.posts);
+      /* console.log("POSTS", this.posts); */
     });
 
   }
@@ -35,7 +35,7 @@ export class SalaDeChatComponent implements OnInit
   {
   }
 
-  addPost()
+  addPost(f:HTMLFormElement)
   {
     this.post = {
       contenido: this.content,
@@ -45,6 +45,7 @@ export class SalaDeChatComponent implements OnInit
     this.chatService.createPost(this.post).then(value =>
     {
       console.log(value);
+      f.reset();
     }
     );
   }

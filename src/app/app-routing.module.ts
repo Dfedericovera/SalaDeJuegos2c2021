@@ -29,11 +29,13 @@ const routes: Routes = [
   },
   {
     path: `menujuegos`, loadChildren: () =>
-      import('./pages/menujuegos/menujuegos.module').then(m => m.MenujuegosModule)
+      import('./pages/menujuegos/menujuegos.module').then(m => m.MenujuegosModule),
+      canActivate: [AuthGuard]
   },
   {
     path: `salaDeChat`, loadChildren: () =>
-      import('./pages/sala-de-chat/sala-de-chat.module').then(m => m.SalaDeChatModule)
+      import('./pages/sala-de-chat/sala-de-chat.module').then(m => m.SalaDeChatModule),
+      canActivate: [AuthGuard]
   },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];

@@ -21,9 +21,9 @@
                 </li>
             </ul>
         </div>
-        <form class="mt-5">
+        <form class="mt-5" #f>
             <input [(ngModel)]="content" name="content" placeholder="Escribe un mensaje..">
-            <input type="submit" value="Enviar" (click)="addPost()">
+            <input type="submit" value="Enviar" (click)="addPost(f)">
         </form>
 
     </div>
