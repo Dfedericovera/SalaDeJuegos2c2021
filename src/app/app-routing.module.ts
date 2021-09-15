@@ -31,6 +31,10 @@ const routes: Routes = [
     path: `menujuegos`, loadChildren: () =>
       import('./pages/menujuegos/menujuegos.module').then(m => m.MenujuegosModule)
   },
+  {
+    path: `salaDeChat`, loadChildren: () =>
+      import('./pages/sala-de-chat/sala-de-chat.module').then(m => m.SalaDeChatModule)
+  },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
 
