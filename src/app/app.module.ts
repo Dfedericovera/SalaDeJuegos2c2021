@@ -22,6 +22,7 @@ import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { MenujuegosComponent } from './pages/menujuegos/menujuegos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SalaDeChatComponent } from './pages/sala-de-chat/sala-de-chat.component';
+import { AhorcadoComponent } from './pages/ahorcado/ahorcado.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SalaDeChatComponent } from './pages/sala-de-chat/sala-de-chat.component
     AlertComponent,
     QuienSoyComponent,
     MenujuegosComponent,
-    SalaDeChatComponent
+    SalaDeChatComponent,
+    AhorcadoComponent
   ],
   imports: [
     BrowserModule,

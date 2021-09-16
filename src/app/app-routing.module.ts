@@ -37,6 +37,11 @@ const routes: Routes = [
       import('./pages/sala-de-chat/sala-de-chat.module').then(m => m.SalaDeChatModule),
       canActivate: [AuthGuard]
   },
+  {
+    path: `ahorcado`, loadChildren: () =>
+      import('./pages/ahorcado/ahorcado.module').then(m => m.AhorcadoModule),
+      canActivate: [AuthGuard]
+  },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
 
