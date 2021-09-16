@@ -42,6 +42,11 @@ const routes: Routes = [
       import('./pages/ahorcado/ahorcado.module').then(m => m.AhorcadoModule),
       canActivate: [AuthGuard]
   },
+  {
+    path: `mayoromenor`, loadChildren: () =>
+      import('./pages/mayoromenor/mayoromenor.module').then(m => m.MayoromenorModule),
+      canActivate: [AuthGuard]
+  },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
 
