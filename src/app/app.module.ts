@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SalaDeChatComponent } from './pages/sala-de-chat/sala-de-chat.component';
 import { AhorcadoComponent } from './pages/ahorcado/ahorcado.component';
 import { MayoromenorComponent } from './pages/mayoromenor/mayoromenor.component';
+import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MayoromenorComponent } from './pages/mayoromenor/mayoromenor.component'
     MenujuegosComponent,
     SalaDeChatComponent,
     AhorcadoComponent,
-    MayoromenorComponent
+    MayoromenorComponent,
+    PreguntadosComponent
   ],
   imports: [
     BrowserModule,

@@ -14,4 +14,9 @@ export class PaisesService
     return this.http.get("https://restcountries.eu/rest/v2/all")
   }
 
+  public listarPerros()
+  {
+    return this.http.get("https://api.thedogapi.com/v1/images/search").toPromise();
+  }
+
 }

@@ -15,8 +15,6 @@ const routes: Routes = [
     data: { animation: 'signup' },
 
   },
-  /*
-   {path: 'quiensoy',component: QuienSoyComponent,data: {animation: 'home'}}, */
   {
     path: `home`,
     loadChildren: () =>
@@ -45,6 +43,11 @@ const routes: Routes = [
   {
     path: `mayoromenor`, loadChildren: () =>
       import('./pages/mayoromenor/mayoromenor.module').then(m => m.MayoromenorModule),
+      canActivate: [AuthGuard]
+  },
+  {
+    path: `preguntados`, loadChildren: () =>
+      import('./pages/preguntados/preguntados.module').then(m => m.PreguntadosModule),
       canActivate: [AuthGuard]
   },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
