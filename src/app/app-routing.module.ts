@@ -28,27 +28,32 @@ const routes: Routes = [
   {
     path: `menujuegos`, loadChildren: () =>
       import('./pages/menujuegos/menujuegos.module').then(m => m.MenujuegosModule),
-      canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: `salaDeChat`, loadChildren: () =>
       import('./pages/sala-de-chat/sala-de-chat.module').then(m => m.SalaDeChatModule),
-      canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: `ahorcado`, loadChildren: () =>
       import('./pages/ahorcado/ahorcado.module').then(m => m.AhorcadoModule),
-      canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: `mayoromenor`, loadChildren: () =>
       import('./pages/mayoromenor/mayoromenor.module').then(m => m.MayoromenorModule),
-      canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: `preguntados`, loadChildren: () =>
       import('./pages/preguntados/preguntados.module').then(m => m.PreguntadosModule),
-      canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
+  },
+  {
+    path: `caraoseca`,
+    loadChildren: () => import('./pages/caraoseca/caraoseca.module').then(m => m.CaraosecaModule),
+    canActivate: [AuthGuard]
   },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];

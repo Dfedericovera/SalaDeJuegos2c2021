@@ -25,6 +25,7 @@ import { SalaDeChatComponent } from './pages/sala-de-chat/sala-de-chat.component
 import { AhorcadoComponent } from './pages/ahorcado/ahorcado.component';
 import { MayoromenorComponent } from './pages/mayoromenor/mayoromenor.component';
 import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
+import { CaraosecaComponent } from './pages/caraoseca/caraoseca.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PreguntadosComponent } from './pages/preguntados/preguntados.component'
     SalaDeChatComponent,
     AhorcadoComponent,
     MayoromenorComponent,
-    PreguntadosComponent
+    PreguntadosComponent,
+    CaraosecaComponent
   ],
   imports: [
     BrowserModule,
