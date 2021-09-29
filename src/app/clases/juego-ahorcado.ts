@@ -8,8 +8,8 @@ export class JuegoAhorcado extends Juego {
         throw new Error('Method not implemented.');
     }
 
-    constructor(jugador?:User) {
-        super(null,'Ahorcado',null,jugador);
+    constructor(jugador?:User, gano?:boolean) {
+        super(null,'Ahorcado',gano,jugador);
     }    
 
 }

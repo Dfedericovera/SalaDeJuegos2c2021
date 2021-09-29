@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegoAhorcado } from 'src/app/clases/juego-ahorcado';
+import { JuegoService } from 'src/app/services/juego.service';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -19,7 +22,10 @@ export class AhorcadoComponent implements OnInit
   gameOver = false;
   won = 0;
   lost = 0;
-  constructor() { }
+  constructor(
+    private juegoService:JuegoService,
+    private jugadoresService:UserService
+    ) { }
 
   ngOnInit(): void
   {
@@ -58,6 +64,7 @@ export class AhorcadoComponent implements OnInit
       if (this.finalGanado)
       {
         this.won++;
+        this.guardarJuego(true);
         this.finalGanado = false;
       }
     } else
@@ -71,8 +78,17 @@ export class AhorcadoComponent implements OnInit
         this.lost++;
         this.salida.innerHTML = '<div class="d-flex flex-column align-items-center"><div>La solución era: ' + this.palabra + '</div></div>';
         var teclado = document.getElementById('teclado');
+        this.guardarJuego(false);
       }
     }
+  }
+
+  guardarJuego(gano:boolean){
+    var juego = new JuegoAhorcado(this.jugadoresService.jugador);
+    juego.gano = gano;
+    this.juegoService.addJuego(juego).then(()=>{
+      console.log("Guardado---")
+    });
   }
 
   reiniciar()
