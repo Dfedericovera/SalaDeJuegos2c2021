@@ -55,6 +55,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/caraoseca/caraoseca.module').then(m => m.CaraosecaModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: `listadoResultados`,
+    loadChildren: () => import('./pages/listado-resultados/listado-resultados.module').then(m => m.ListadoResultadosModule),
+    canActivate: [AuthGuard]
+  },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
 

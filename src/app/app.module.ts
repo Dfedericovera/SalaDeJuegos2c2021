@@ -26,6 +26,7 @@ import { AhorcadoComponent } from './pages/ahorcado/ahorcado.component';
 import { MayoromenorComponent } from './pages/mayoromenor/mayoromenor.component';
 import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
 import { CaraosecaComponent } from './pages/caraoseca/caraoseca.component';
+import { ListadoResultadosComponent } from './pages/listado-resultados/listado-resultados.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CaraosecaComponent } from './pages/caraoseca/caraoseca.component';
     AhorcadoComponent,
     MayoromenorComponent,
     PreguntadosComponent,
-    CaraosecaComponent
+    CaraosecaComponent,
+    ListadoResultadosComponent
   ],
   imports: [
     BrowserModule,
