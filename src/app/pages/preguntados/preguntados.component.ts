@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegoPreguntados } from 'src/app/clases/juego-preguntados';
+import { JuegoService } from 'src/app/services/juego.service';
 import { PaisesService } from 'src/app/services/paises.service';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-preguntados',
@@ -16,6 +19,8 @@ export class PreguntadosComponent implements OnInit
 
   constructor(
     private paisesService: PaisesService,
+    private juegoService: JuegoService,
+    private jugadoresService: UserService
   ) { }
 
   ngOnInit(): void
@@ -85,6 +90,7 @@ export class PreguntadosComponent implements OnInit
     {
       console.log("Perdio");
       this.gameOver = true;
+      this.guardarJuego(this.aciertos);
     }
   }
 
@@ -109,6 +115,17 @@ export class PreguntadosComponent implements OnInit
     }
 
     console.log(array);
+  }
+
+  guardarJuego(aciertos: number)
+  {
+    var juego = new JuegoPreguntados(this.jugadoresService.jugador);
+    juego.aciertos = aciertos.toString();
+    juego.gano = true;
+    this.juegoService.addJuego(juego).then(() =>
+    {
+      console.log("Guardado---")
+    });
   }
 
 }

@@ -3,7 +3,7 @@ import { User } from './Usuario';
 
 export class JuegoPreguntados extends Juego {
 
-    suerte:any;
+    aciertos:any;
     public verificar(): boolean {
         throw new Error('Method not implemented.');
     }
