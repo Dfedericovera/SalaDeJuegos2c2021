@@ -19,7 +19,7 @@ export class ListadoResultadosComponent implements OnInit {
     }
  
    ngOnInit() {
-     this.listado = this.juegosService.juegos;
+     this.TraerTodos();
    }
  
    ver() {

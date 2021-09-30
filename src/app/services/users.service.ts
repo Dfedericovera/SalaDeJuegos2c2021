@@ -28,7 +28,6 @@ export class UserService
       var jug = JSON.parse(localStorage.getItem('user')) as User;
       users.forEach(jugador =>
       {
-
         if (jugador.email == jug.email)
         {
           this.jugador = jugador;
@@ -48,8 +47,8 @@ export class UserService
 //Devuelve un Observable de tipo User Array.
 getUsers(): Observable < User[] >
 {
-  return this.db.collection("users", (ref) =>
-    ref.orderBy('date')).snapshotChanges().pipe(
+  return this.db.collection("jugadores", (ref) =>
+    ref).snapshotChanges().pipe(
       map((snaps) =>
         snaps.map((snap) =>
         {
