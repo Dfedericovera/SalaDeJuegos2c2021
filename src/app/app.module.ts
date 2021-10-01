@@ -27,6 +27,7 @@ import { MayoromenorComponent } from './pages/mayoromenor/mayoromenor.component'
 import { PreguntadosComponent } from './pages/preguntados/preguntados.component';
 import { CaraosecaComponent } from './pages/caraoseca/caraoseca.component';
 import { ListadoResultadosComponent } from './pages/listado-resultados/listado-resultados.component';
+import { EncuestaComponent } from './pages/encuesta/encuesta.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ListadoResultadosComponent } from './pages/listado-resultados/listado-r
     MayoromenorComponent,
     PreguntadosComponent,
     CaraosecaComponent,
-    ListadoResultadosComponent
+    ListadoResultadosComponent,
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,

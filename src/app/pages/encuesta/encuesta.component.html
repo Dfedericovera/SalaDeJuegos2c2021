@@ -1,0 +1,99 @@
+<app-header></app-header>
+<br><br>
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="../../../assets/images/mario.png" alt="" width="72" height="72">
+        <h2>Sala de juegos</h2>
+        <p class="lead">Esta es una encuesta para nuestros usuarios.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Preguntas</h4>
+            <form class="needs-validation" [formGroup]="userForm" novalidate>
+                <div class="mb-3">
+                    <label for="email">En una escala del 1 al 5 ¿Cuan satisfecho esta con los juegos? <span
+                            class="text-muted"></span></label>
+                    <br>
+                    <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                    <!--     <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userForm.controls['email'].errors.required">
+                            El email es requerido.
+                        </div>
+                    </div> -->
+                </div>
+                <div class="mb-3">
+                    <label for="email">¿Cuanto tiempo le dedica al ocio? <span class="text-muted"></span></label>
+                    <br>
+                    <select class="form-select" size="4" aria-label="size 3 select example">
+                        <option selected>1 hora</option>
+                        <option value="1">2 horas</option>
+                        <option value="2">3 horas</option>
+                        <option value="3">4 horas o +</option>
+                    </select>
+                    <!--     <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userForm.controls['email'].errors.required">
+                            El email es requerido.
+                        </div>
+                    </div> -->
+                </div>
+                <div class="mb-3">
+                    <label for="">¿Que tipo de juego prefiere?</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1" checked>
+                        <label class="form-check-label" for="inlineRadio1">Estrategia</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Acción</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3">
+                        <label class="form-check-label" for="inlineRadio3">Juegos de Mesa</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address">¿Tienes alguna sugerencia?</label>
+                    <input type="text" class="form-control" id="address" formControlName="password"
+                        placeholder="Contraseña" minlength="6" required>
+                    <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="userForm.controls['password'].errors.required">
+                            La sugerencia es requerida.
+                        </div>
+
+                        <div *ngIf="userForm.controls['password'].errors.minlength">
+                            La sugerencia debe contener al menos 6 caracteres.
+                        </div>
+                    </div>
+                </div>
+                <div class="container" *ngIf="submitted">
+                    <boot-alert [mensaje]="mensaje" [color]="colorAlert" (dismiss)="navigate()"></boot-alert>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()"
+                    [disabled]="userForm.invalid">Registrarme</button>
+                <button class="btn btn-danger btn-lg btn-block" routerLink="/login">Ya tengo una
+                    cuenta</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; Federico Vera</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+</div>

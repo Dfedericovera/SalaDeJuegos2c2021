@@ -60,6 +60,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/listado-resultados/listado-resultados.module').then(m => m.ListadoResultadosModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: `encuesta`,
+    loadChildren: () => import('./pages/encuesta/encuesta.module').then(m => m.EncuestaModule),
+    canActivate: [AuthGuard]
+  },
   { path: ``, redirectTo: `home`, pathMatch: `full` }
 ];
 
