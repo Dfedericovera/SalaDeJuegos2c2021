@@ -20,7 +20,6 @@ export class JuegoService implements OnInit
   //Devuelve un Observable de tipo Juego Array.
   getJuegos(): Observable<Juego[]>
   {
-    console.log("Get juegos;")
     return this.db.collection("juegos",(ref) =>
       ref.orderBy('date')).snapshotChanges().pipe(
         map((snaps) =>
@@ -51,7 +50,6 @@ export class JuegoService implements OnInit
     //?Con esto FireBase se encarga de todo,
     //?no hay que pensar en endpoints o si esta o no creada la tabla.
     //?Adicionamos un nuevo record a la tabla.
-    console.log(juego);
     try
     {
       return new Promise<any>((resolve, reject) =>
@@ -59,7 +57,7 @@ export class JuegoService implements OnInit
         this.db
           .collection("juegos")
           .add(JSON.parse(JSON.stringify(juego)))
-          .then(res => { console.log('Guardado---', res) }, err => reject(console.error(err)));
+          .then(res => { console.log('Guardado---') }, err => reject(console.error(err)));
       });
     } catch (error)
     {

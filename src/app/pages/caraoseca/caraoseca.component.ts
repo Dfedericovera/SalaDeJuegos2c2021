@@ -72,7 +72,6 @@ export class CaraosecaComponent implements OnInit {
   }
   lanzarMoneda(bar: HTMLElement) {
     this.isSpining = true;
-    console.log(this.lanzoMoneda);
     this.lanzoMoneda = !this.lanzoMoneda;
     if (this.verificar() == true) {
       //Gano

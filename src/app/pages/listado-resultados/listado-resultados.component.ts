@@ -22,15 +22,10 @@ export class ListadoResultadosComponent implements OnInit {
      this.TraerTodos();
    }
  
-   ver() {
-     console.info(this.listado);
-   }
- 
    TraerTodos(){
      /* this.listado = this.juegosService.juegos; */
      this.juegosService.getJuegos().subscribe(juegos=>{
        this.listado = juegos;
-       console.log(this.listado);
      })
    }
    TraerGanadores(){

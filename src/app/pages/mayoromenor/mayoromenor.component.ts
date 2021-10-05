@@ -43,17 +43,16 @@ export class MayoromenorComponent implements OnInit
     if (eleccion == 'mayor' && nuevoIndice > this.indice)
     {
       //gano
-      this.aciertos++; console.log('mayor')
+      this.aciertos++; 
     }
     else if (eleccion == 'menor' && nuevoIndice < this.indice)
     {
       //gano
-      this.aciertos++; console.log('menor')
+      this.aciertos++; 
     }
     else
     {
       //perdio
-      console.log('Game Over!');
       this.gameOver = true;
       this.guardarJuego(this.aciertos);
     }

@@ -27,7 +27,6 @@ export class ChatService
     this.getPosts().subscribe(posts =>
     {
       this.posts = posts;
-      console.log("Service", this.posts);
     })
     //? Accedemos a la base de datos de firebase.
     //? Vamos a acceder la lista de posts en la db.

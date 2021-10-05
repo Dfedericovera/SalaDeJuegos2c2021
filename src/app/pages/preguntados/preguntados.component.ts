@@ -36,7 +36,6 @@ export class PreguntadosComponent implements OnInit
       if (dogs[0].breeds[0] != undefined)
       {
         this.perro = dogs;
-        console.log(this.perro[0].breeds[0].name);
         this.cargarOpciones();
       }
       else
@@ -79,7 +78,6 @@ export class PreguntadosComponent implements OnInit
 
   comprobar(respuesta)
   {
-    console.log(respuesta);
     if (respuesta == this.perro[0].breeds[0].name)
     {
       console.log("GANO");
@@ -103,7 +101,6 @@ export class PreguntadosComponent implements OnInit
 
   mezclarArray(array: Array<any>)
   {
-    console.log(array.length);
     var n = array.length, i = -1, j;
     var t;
     while (++i < n)
@@ -113,8 +110,6 @@ export class PreguntadosComponent implements OnInit
       array[j] = array[i];
       array[i] = t;
     }
-
-    console.log(array);
   }
 
   guardarJuego(aciertos: number)
