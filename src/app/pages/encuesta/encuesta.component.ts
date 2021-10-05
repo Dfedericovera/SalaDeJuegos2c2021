@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { EncuestaService } from 'src/app/services/encuesta.service';
 import { UserService } from 'src/app/services/users.service';
 
 @Component({
@@ -9,17 +10,18 @@ import { UserService } from 'src/app/services/users.service';
   templateUrl: './encuesta.component.html',
   styleUrls: ['./encuesta.component.sass']
 })
-export class EncuestaComponent implements OnInit {
+export class EncuestaComponent implements OnInit
+{
 
   userForm: FormGroup;
   submitted: boolean = false;
-  mensaje:string;
-  colorAlert:string;
+  mensaje: string;
+  colorAlert: string;
+  minimo:number=0;
 
   constructor(
-    private authService: AuthService,
+    private encuestaService: EncuestaService,
     private fb: FormBuilder,
-    private userService: UserService,
     private router: Router
   )
   {
@@ -33,35 +35,31 @@ export class EncuestaComponent implements OnInit {
   createForm()
   {
     this.userForm = this.fb.group({
-      name: ["", Validators.required],
-      lastName: ["", Validators.required],
-      email: ["", Validators.required],
-      password: ["", Validators.required],
+      nivelSatisfaccion: [3, Validators.required],
+      ocio: ["", Validators.required],
+      tipoJuegoPreferido: ["", Validators.required],
+      sugerencia: ["", Validators.required],
     });
   }
 
   onSubmit()
   {
-    try
+    console.log(this.userForm.value);
+    
+    this.encuestaService.addEncuesta(this.userForm.value).then(j =>
     {
-      this.authService.register(this.userForm.controls.email.value, this.userForm.controls.password.value).then(user =>
-      {
-        if (user)
-        {
-          /* this.userService.createUser */
-        }
-      }).catch(error =>
-      {
-        console.log('Error', error);
-        this.colorAlert = "alert-danger"
-        this.mensaje = error.message;/* "Hubo un problema al registrarse" */
-        this.submitted = true;
-      });
+      //Agregado Correctamente
+    }).catch(error =>
+    {
+      console.log('Error', error);
+      this.colorAlert = "alert-danger"
+      this.mensaje = error.message;/* "Hubo un problema al registrarse" */
+      this.submitted = true;
+    });
+  }
 
-    } catch (error)
-    {
-      console.log('Error fuera', error);
-    }
+  test(){
+    console.log(this.userForm.value);
   }
 
   navigate()

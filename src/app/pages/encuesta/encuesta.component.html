@@ -12,63 +12,63 @@
             <h4 class="mb-3">Preguntas</h4>
             <form class="needs-validation" [formGroup]="userForm" novalidate>
                 <div class="mb-3">
-                    <label for="email">En una escala del 1 al 5 ¿Cuan satisfecho esta con los juegos? <span
+                    <label for="">En una escala del 1 al 5 ¿Cuan satisfecho esta con los juegos? <span
                             class="text-muted"></span></label>
                     <br>
-                    <input type="range" class="form-range" min="0" max="5" id="customRange2">
-                    <!--     <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)"
-                        class="alert alert-danger">
-                        <div *ngIf="userForm.controls['email'].errors.required">
-                            El email es requerido.
-                        </div>
-                    </div> -->
+                    <input type="range" class="form-range" min="0" max="5" id="customRange2" style="width: 50vw;" value="1" 
+                        formControlName="nivelSatisfaccion">
                 </div>
                 <div class="mb-3">
-                    <label for="email">¿Cuanto tiempo le dedica al ocio? <span class="text-muted"></span></label>
+                    <label for="ocio">¿Cuanto tiempo le dedica al ocio? <span class="text-muted"></span></label>
                     <br>
-                    <select class="form-select" size="4" aria-label="size 3 select example" required>
-                        <option selected>1 hora</option>
+                    <select class="form-select" size="4" aria-label="size 3 select example" required #ocio
+                        formControlName="ocio">
+                        <option value="0">Menos de 1 hora</option>
                         <option value="1">2 horas</option>
                         <option value="2">3 horas</option>
                         <option value="3">4 horas o +</option>
                     </select>
-                    <!--     <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)"
-                        class="alert alert-danger">
-                        <div *ngIf="userForm.controls['email'].errors.required">
-                            El email es requerido.
+                    <div *ngIf="userForm.controls['ocio'].pristine" class="alert alert-danger">
+                        <div *ngIf="userForm.controls['ocio'].errors.required">
+                            Este campo es requerido.
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="">¿Que tipo de juego prefiere?</label>
                     <br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1" checked>
+                        <input class="form-check-input" type="radio" name="tipoJuegoPreferido" id="inlineRadio1"
+                            formControlName="tipoJuegoPreferido" value="option1">
                         <label class="form-check-label" for="inlineRadio1">Estrategia</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
+                        <input class="form-check-input" type="radio" name="tipoJuegoPreferido" id="inlineRadio2"
+                            formControlName="tipoJuegoPreferido" value="option2">
                         <label class="form-check-label" for="inlineRadio2">Acción</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3">
+                        <input class="form-check-input" type="radio" name="tipoJuegoPreferido" id="inlineRadio3"
+                            formControlName="tipoJuegoPreferido" value="option3">
                         <label class="form-check-label" for="inlineRadio3">Juegos de Mesa</label>
+                    </div>
+                    <div *ngIf="userForm.controls['tipoJuegoPreferido'].pristine" class="alert alert-danger">
+                        <div *ngIf="userForm.controls['tipoJuegoPreferido'].errors.required">
+                            Este campo es requerido.
+                        </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="address">¿Tienes alguna sugerencia?</label>
-                    <input type="text" class="form-control" id="address" formControlName="password"
-                        placeholder="Contraseña" minlength="6" required>
-                    <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)"
+                    <input type="text" class="form-control" id="address" formControlName="sugerencia"
+                        placeholder="Cuentanos tu opinión" minlength="6" required>
+                    <div *ngIf="userForm.controls['sugerencia'].invalid && (userForm.controls['sugerencia'].dirty || userForm.controls['sugerencia'].touched)"
                         class="alert alert-danger">
-                        <div *ngIf="userForm.controls['password'].errors.required">
+                        <div *ngIf="userForm.controls['sugerencia'].errors.required">
                             La sugerencia es requerida.
                         </div>
 
-                        <div *ngIf="userForm.controls['password'].errors.minlength">
+                        <div *ngIf="userForm.controls['sugerencia'].errors.minlength">
                             La sugerencia debe contener al menos 6 caracteres.
                         </div>
                     </div>
@@ -78,6 +78,7 @@
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()"
                     [disabled]="userForm.invalid">Registrarme</button>
+                <button (click)="test()">TEST</button>
                 <button class="btn btn-danger btn-lg btn-block" routerLink="/login">Ya tengo una
                     cuenta</button>
 
