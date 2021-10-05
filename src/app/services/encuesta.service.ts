@@ -36,19 +36,15 @@ export class EncuestaService
   //Metodo para crear un nuevo Encuesta en la DB
   addEncuesta(encuesta: Encuesta)
   {
-    //?Con esto FireBase se encarga de todo,
     //?no hay que pensar en endpoints o si esta o no creada la tabla.
     //?Adicionamos un nuevo record a la tabla.
-    console.log(encuesta);
+    
     try
     {
-      return new Promise<any>((resolve, reject) =>
-      {
-        this.db
+      return this.db
           .collection("encuestas")
           .add(JSON.parse(JSON.stringify(encuesta)))
-          .then(res => { console.log('Guardado---', res) }, err => reject(console.error(err)));
-      });
+          .then(res => { console.log('Guardado---') })
     } catch (error)
     {
       console.error('Error: ', error);

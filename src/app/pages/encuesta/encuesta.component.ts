@@ -43,12 +43,18 @@ export class EncuestaComponent implements OnInit
   }
 
   onSubmit()
-  {
-    console.log(this.userForm.value);
-    
+  {    
     this.encuestaService.addEncuesta(this.userForm.value).then(j =>
     {
       //Agregado Correctamente
+      this.colorAlert  = "alert-success"
+      this.mensaje = "Muchas gracias por su tiempo"
+      this.submitted = true;
+      setTimeout(
+        t=>{
+          this.navigate();
+        },2000
+      )
     }).catch(error =>
     {
       console.log('Error', error);
@@ -58,12 +64,8 @@ export class EncuestaComponent implements OnInit
     });
   }
 
-  test(){
-    console.log(this.userForm.value);
-  }
-
   navigate()
   {
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 }

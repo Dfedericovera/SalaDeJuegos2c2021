@@ -17,16 +17,18 @@
                     <br>
                     <input type="range" class="form-range" min="0" max="5" id="customRange2" style="width: 50vw;" value="1" 
                         formControlName="nivelSatisfaccion">
+                    <br>
+                    <p><b>{{userForm.controls['nivelSatisfaccion'].value}}</b></p>
                 </div>
                 <div class="mb-3">
                     <label for="ocio">¿Cuanto tiempo le dedica al ocio? <span class="text-muted"></span></label>
                     <br>
                     <select class="form-select" size="4" aria-label="size 3 select example" required #ocio
                         formControlName="ocio">
-                        <option value="0">Menos de 1 hora</option>
-                        <option value="1">2 horas</option>
-                        <option value="2">3 horas</option>
-                        <option value="3">4 horas o +</option>
+                        <option value="Menos de 1 hora">Menos de 1 hora</option>
+                        <option value="2 horas">2 horas</option>
+                        <option value="3 horas">3 horas</option>
+                        <option value="4 horas o +">4 horas o +</option>
                     </select>
                     <div *ngIf="userForm.controls['ocio'].pristine" class="alert alert-danger">
                         <div *ngIf="userForm.controls['ocio'].errors.required">
@@ -39,17 +41,17 @@
                     <br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tipoJuegoPreferido" id="inlineRadio1"
-                            formControlName="tipoJuegoPreferido" value="option1">
+                            formControlName="tipoJuegoPreferido" value="Estrategia">
                         <label class="form-check-label" for="inlineRadio1">Estrategia</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tipoJuegoPreferido" id="inlineRadio2"
-                            formControlName="tipoJuegoPreferido" value="option2">
+                            formControlName="tipoJuegoPreferido" value="Acción">
                         <label class="form-check-label" for="inlineRadio2">Acción</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tipoJuegoPreferido" id="inlineRadio3"
-                            formControlName="tipoJuegoPreferido" value="option3">
+                            formControlName="tipoJuegoPreferido" value="Juegos de Mesa">
                         <label class="form-check-label" for="inlineRadio3">Juegos de Mesa</label>
                     </div>
                     <div *ngIf="userForm.controls['tipoJuegoPreferido'].pristine" class="alert alert-danger">
@@ -78,7 +80,6 @@
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()"
                     [disabled]="userForm.invalid">Registrarme</button>
-                <button (click)="test()">TEST</button>
                 <button class="btn btn-danger btn-lg btn-block" routerLink="/login">Ya tengo una
                     cuenta</button>
 
