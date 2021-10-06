@@ -17,12 +17,13 @@ export class EncuestaComponent implements OnInit
   submitted: boolean = false;
   mensaje: string;
   colorAlert: string;
-  minimo:number=0;
+  minimo: number = 0;
 
   constructor(
     private encuestaService: EncuestaService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   )
   {
     this.createForm();
@@ -30,30 +31,41 @@ export class EncuestaComponent implements OnInit
 
   ngOnInit(): void
   {
+    this.authService.afAuth.authState.subscribe(user =>
+    {
+      this.userForm.controls['usuario'].setValue(user.email);
+    })
+
   }
 
   createForm()
   {
     this.userForm = this.fb.group({
+      nombre: ["", Validators.required],
+      apellido: ["", Validators.required],
+      edad: ["", [Validators.required, Validators.min(18), Validators.max(99)]],
+      telefono: ["", [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')]],
       nivelSatisfaccion: [3, Validators.required],
       ocio: ["", Validators.required],
       tipoJuegoPreferido: ["", Validators.required],
-      sugerencia: ["", Validators.required],
+      sugerencia: [""],
+      usuario: [""]
     });
   }
 
   onSubmit()
-  {    
+  {
     this.encuestaService.addEncuesta(this.userForm.value).then(j =>
     {
       //Agregado Correctamente
-      this.colorAlert  = "alert-success"
+      this.colorAlert = "alert-success"
       this.mensaje = "Muchas gracias por su tiempo"
       this.submitted = true;
       setTimeout(
-        t=>{
+        t =>
+        {
           this.navigate();
-        },2000
+        }, 2000
       )
     }).catch(error =>
     {

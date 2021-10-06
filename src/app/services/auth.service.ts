@@ -10,17 +10,21 @@ import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firest
 })
 export class AuthService
 {
-  public user: User;
+  public user: User = null;
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
     private afs: AngularFirestore
   )
   {
-    this.afAuth.authState.subscribe((user) =>
+/*     this.afAuth.authState.subscribe((user) =>
     {
       this.user = user;
-    });
+      console.log(user);
+    }); */
+    this.afAuth.authState.subscribe(user=>{
+      this.user = user;
+    })
   }
 
   async login(email: string, password: string)
@@ -28,7 +32,7 @@ export class AuthService
     try
     {
       var result = await this.afAuth.signInWithEmailAndPassword(email, password);
-      localStorage.setItem("user",JSON.stringify(result.user));
+      localStorage.setItem("user",JSON.stringify(result.user.email));
       this.guardarFechaDeIngreso(result.user);
       return result;
     } catch (error)
@@ -117,6 +121,10 @@ export class AuthService
     {
       console.error("isLoggedIn", error);
     }
+  }
+
+  getUserAuth(){
+    return this.afAuth.authState
   }
 
 }

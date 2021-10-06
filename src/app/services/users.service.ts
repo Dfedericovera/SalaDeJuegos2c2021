@@ -16,6 +16,7 @@ export class UserService
   private filePath: any;
   private downloadURL: Observable<string>;
   public jugador:User;
+  public emailLocalStorage:string = JSON.parse(localStorage.getItem('user'));
 
   constructor(
     private db: AngularFirestore,
@@ -25,10 +26,9 @@ export class UserService
     this.getUsers().subscribe(users =>
     {
       this.users = users;
-      var jug = JSON.parse(localStorage.getItem('user')) as User;
       users.forEach(jugador =>
-      {
-        if (jugador.email == jug.email)
+      {        
+        if (jugador.email == this.emailLocalStorage)
         {
           this.jugador = jugador;
         }

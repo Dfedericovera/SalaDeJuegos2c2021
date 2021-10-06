@@ -12,11 +12,12 @@ export class HeaderComponent implements OnInit {
   email:string;
 
   constructor(private authService:AuthService, private router:Router) {
-    if(JSON.parse(localStorage.getItem('user'))){
-      this.email = JSON.parse(localStorage.getItem('user')).email;
-    }else{
-      this.email = "ANONIMO"
-    }
+
+    authService.getUserAuth().subscribe(
+      user=>{
+        this.email = user.email
+      }
+    )
     
    }
 
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem("user");
+    this.authService.logout();
     this.router.navigate(["/login"]);
   }
 

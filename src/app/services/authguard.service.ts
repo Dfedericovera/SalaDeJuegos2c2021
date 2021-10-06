@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate
   }
 
   checkUser():boolean{
-    return this.authService.isLoggedIn
+    return this.authService.isLoggedIn;
     
   }
 

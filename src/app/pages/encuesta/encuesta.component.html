@@ -11,12 +11,78 @@
         <div class="col-md-12 order-md-1">
             <h4 class="mb-3">Preguntas</h4>
             <form class="needs-validation" [formGroup]="userForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" formControlName="nombre"
+                            placeholder="Nombre" minlength="3" required>
+                        <div *ngIf="userForm.controls['nombre'].invalid && (userForm.controls['nombre'].dirty || userForm.controls['nombre'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="userForm.controls['nombre'].errors.required">
+                                El nombre es requerido.
+                            </div>
+                            <div *ngIf="userForm.controls['nombre'].errors.minlength">
+                                El nombre debe contener al menos 3 caracteres.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" formControlName="apellido"
+                            placeholder="Apellido" minlength="3" required>
+                        <div *ngIf="userForm.controls['apellido'].invalid && (userForm.controls['apellido'].dirty || userForm.controls['apellido'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="userForm.controls['apellido'].errors.required">
+                                El apellido es requerido.
+                            </div>
+                            <div *ngIf="userForm.controls['apellido'].errors.minlength">
+                                El apellido debe contener al menos 3 caracteres.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="edad">Edad</label>
+                        <input type="number" class="form-control" id="edad" formControlName="edad"
+                            placeholder="Edad"  required>
+                        <div *ngIf="userForm.controls['edad'].invalid && (userForm.controls['edad'].dirty || userForm.controls['edad'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="userForm.controls['edad'].errors.required">
+                                El edad es requerida.
+                            </div>
+                            <div *ngIf="userForm.controls['edad'].errors.min">
+                                Debe ser mayor de 18 años.
+                            </div>
+                            <div *ngIf="userForm.controls['edad'].errors.max">
+                                Debe ser menor de 99 años.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" formControlName="telefono"
+                            placeholder="Telefono"  required>
+                        <div *ngIf="userForm.controls['telefono'].invalid && (userForm.controls['telefono'].dirty || userForm.controls['telefono'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="userForm.controls['telefono'].errors.required">
+                                El telefono es requerido.
+                            </div>
+                            <div *ngIf="userForm.controls['telefono'].errors.maxlength">
+                                El telefono no debe contener mas de 10 caracteres.
+                            </div>
+                            <div *ngIf="userForm.controls['telefono'].errors.pattern">
+                                El telefono debe contener solo números.
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="mb-3">
                     <label for="">En una escala del 1 al 5 ¿Cuan satisfecho esta con los juegos? <span
                             class="text-muted"></span></label>
                     <br>
-                    <input type="range" class="form-range" min="0" max="5" id="customRange2" style="width: 50vw;" value="1" 
-                        formControlName="nivelSatisfaccion">
+                    <input type="range" class="form-range" min="0" max="5" id="customRange2" style="width: 50vw;"
+                        value="1" formControlName="nivelSatisfaccion">
                     <br>
                     <p><b>{{userForm.controls['nivelSatisfaccion'].value}}</b></p>
                 </div>
@@ -63,13 +129,9 @@
                 <div class="mb-3">
                     <label for="address">¿Tienes alguna sugerencia?</label>
                     <input type="text" class="form-control" id="address" formControlName="sugerencia"
-                        placeholder="Cuentanos tu opinión" minlength="6" required>
+                        placeholder="Cuentanos tu opinión" minlength="6">
                     <div *ngIf="userForm.controls['sugerencia'].invalid && (userForm.controls['sugerencia'].dirty || userForm.controls['sugerencia'].touched)"
                         class="alert alert-danger">
-                        <div *ngIf="userForm.controls['sugerencia'].errors.required">
-                            La sugerencia es requerida.
-                        </div>
-
                         <div *ngIf="userForm.controls['sugerencia'].errors.minlength">
                             La sugerencia debe contener al menos 6 caracteres.
                         </div>
@@ -79,9 +141,7 @@
                     <boot-alert [mensaje]="mensaje" [color]="colorAlert" (dismiss)="navigate()"></boot-alert>
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit()"
-                    [disabled]="userForm.invalid">Registrarme</button>
-                <button class="btn btn-danger btn-lg btn-block" routerLink="/login">Ya tengo una
-                    cuenta</button>
+                    [disabled]="userForm.invalid">Enviar</button>
 
             </form>
         </div>

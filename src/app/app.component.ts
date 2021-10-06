@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
+import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +10,16 @@ import { slideInAnimation } from './animations';
     slideInAnimation
   ]
 })
-export class AppComponent {
+export class AppComponent
+{
+
   title = 'ClinicaOnline';
 
-  prepareRoute(outlet: RouterOutlet) {
+  constructor(private authService:AuthService){
+  }
+
+  prepareRoute(outlet: RouterOutlet)
+  {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }
